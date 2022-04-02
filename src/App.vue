@@ -22,9 +22,11 @@
 
   <button @click="addItem">Add</button>
   <ul>
+    <transition-group name="fade">
     <li v-for="(number, index) in numbers" :key="number" @click="removeItem(index)">
       {{ number }}
     </li>
+    </transition-group>
   </ul>
 
 
@@ -109,6 +111,14 @@ h2 {
 .fade-leave-to {
   transition: all 0.5s linear;
   opacity: 0;
+}
+
+.fade-move {
+  transition: all 0.5s linear;
+}
+
+.fade-leave-active {
+  position: absolute;
 }
 
 @keyframes zoom-in {
